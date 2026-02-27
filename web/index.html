@@ -4,6 +4,59 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compound Interest Calculator with Contributions</title>
+    <meta
+      name="description"
+      content="Calculate your investment growth with our free compound interest calculator. Supports regular contributions, custom compounding frequencies, and visualises long-term projections."
+    >
+    <link rel="canonical" href="https://calculator.example.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://calculator.example.com/">
+    <meta
+      property="og:title"
+      content="Compound Interest Calculator with Contributions"
+    >
+    <meta
+      property="og:description"
+      content="Plan your financial future with this interactive investment projection tool. Supports regular contributions and compounding frequencies."
+    >
+    <meta
+      property="og:image"
+      content="https://calculator.example.com/og-image.png"
+    >
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://calculator.example.com/">
+    <meta
+      property="twitter:title"
+      content="Compound Interest Calculator with Contributions"
+    >
+    <meta
+      property="twitter:description"
+      content="Calculate your long-term growth with custom contributions and compounding."
+    >
+    <meta
+      property="twitter:image"
+      content="https://calculator.example.com/og-image.png"
+    >
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Compound Interest Calculator",
+        "operatingSystem": "Web",
+        "applicationCategory": "FinanceApplication",
+        "description": "A tool to calculate compound interest with regular contributions and varying compounding frequencies.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
 
     <link
       rel="icon"
@@ -168,7 +221,14 @@
                 class="chart"
                 preserveAspectRatio="none"
                 viewBox="0 0 1000 400"
+                role="img"
+                aria-labelledby="chart-title chart-desc"
               >
+                <title id="chart-title">Compound Interest Growth Chart</title>
+                <desc id="chart-desc">
+                  A line chart showing the projected growth of an investment
+                  over time.
+                </desc>
                 <defs>
                   <linearGradient
                     id="gradient"
@@ -235,6 +295,28 @@
           </div>
         </section>
       </main>
+
+      <article class="content-depth">
+        <section class="content-section">
+          <h2>How Compound Interest Works</h2>
+          <p>
+            Compound interest is the interest on a loan or deposit calculated
+            based on both the initial principal and the accumulated interest
+            from previous periods. Over long periods, this creates exponential
+            growth, as you earn "interest on interest".
+          </p>
+        </section>
+        <section class="content-section">
+          <h2>The Impact of Regular Contributions</h2>
+          <p>
+            While compound interest is powerful on its own, adding regular
+            contributions significantly accelerates your wealth building. By
+            consistently investing a set amount weekly or monthly, you increase
+            the principal amount on which interest is calculated, further
+            amplifying the compounding effect.
+          </p>
+        </section>
+      </article>
 
       <footer>
         <p>© 2024 Financial Projections Tool</p>

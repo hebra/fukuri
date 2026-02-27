@@ -292,6 +292,33 @@ svg.chart {
   color: #94a3b8; /* slate-400 */
 }
 
+/* Content for SEO */
+.content-depth {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+}
+
+@media (min-width: 1024px) {
+  .content-depth {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.content-section h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-colour);
+  margin-bottom: var(--spacing-md);
+}
+
+.content-section p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 /* Footer */
 footer {
   margin-top: 4rem;
