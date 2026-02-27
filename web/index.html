@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator with Contributions</title>
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>"
+    >
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Compound Interest Calculator with Contributions</h1>
+        <div class="header-accent"></div>
+      </header>
+
+      <main class="main-layout">
+        <section class="calculator-inputs">
+          <form id="calculator-form">
+            <div class="input-group">
+              <label class="input-label" for="principal">Start Value</label>
+              <div class="input-wrapper">
+                <span class="input-prefix">$</span>
+                <input
+                  type="number"
+                  id="principal"
+                  class="pl-10"
+                  value="10000"
+                  min="0"
+                  step="0.01"
+                >
+              </div>
+            </div>
+
+            <div class="range-group">
+              <div class="range-header">
+                <label class="input-label" for="interest-rate"
+                >Interest Rate (%)</label>
+                <span class="range-value" id="interest-rate-display">7.5%</span>
+              </div>
+              <input
+                type="range"
+                id="interest-rate"
+                min="0"
+                max="25"
+                step="0.1"
+                value="7.5"
+              >
+              <div class="range-labels">
+                <span>0%</span>
+                <span>25%</span>
+              </div>
+            </div>
+
+            <div class="range-group">
+              <div class="range-header">
+                <label class="input-label" for="period"
+                >Forecast Time Period</label>
+                <span class="range-value" id="period-display">25 <span
+                    class="range-unit"
+                  >Years</span></span>
+              </div>
+              <input
+                type="range"
+                id="period"
+                min="1"
+                max="50"
+                step="1"
+                value="25"
+              >
+              <div class="range-labels">
+                <span>1 Year</span>
+                <span>50 Years</span>
+              </div>
+            </div>
+
+            <div
+              class="input-group"
+              style="padding-top: var(--spacing-lg); border-top: 1px solid #f1f5f9"
+            >
+              <label class="input-label" for="contribution"
+              >Additional Contribution</label>
+              <div class="input-wrapper">
+                <span class="input-prefix">$</span>
+                <input
+                  type="number"
+                  id="contribution"
+                  class="pl-10"
+                  placeholder="0"
+                  value="500"
+                  min="0"
+                  step="0.01"
+                >
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="frequency"
+              >Contribution Frequency</label>
+              <select id="frequency">
+                <option value="weekly">Weekly</option>
+                <option value="monthly" selected>Monthly</option>
+                <option value="annually">Annually</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="compounding"
+              >Compounding Frequency</label>
+              <select id="compounding">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly" selected>Monthly</option>
+                <option value="quarterly">Quarterly</option>
+                <option value="semi-annually">Semi-Annually</option>
+                <option value="annually">Annually</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              id="calculate-btn"
+              class="sr-only"
+              aria-hidden="true"
+            >
+              Calculate
+            </button>
+          </form>
+        </section>
+
+        <section class="results">
+          <div class="results-card">
+            <div class="results-header">
+              <span class="results-label">Estimated Growth</span>
+              <span class="results-total" id="total-growth">$492,842.15</span>
+              <div class="results-summary">
+                <span class="summary-label">Total Contributions:</span>
+                <span class="summary-value" id="total-contributions"
+                >$150,000.00</span>
+              </div>
+            </div>
+
+            <div class="viz-container">
+              <div class="grid-lines">
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line bold"></div>
+              </div>
+
+              <svg
+                class="chart"
+                preserveAspectRatio="none"
+                viewBox="0 0 1000 400"
+              >
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    x2="0%"
+                    y1="0%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: var(--accent-colour); stop-opacity: 1"
+                    >
+                    </stop>
+                    <stop
+                      offset="100%"
+                      style="stop-color: var(--accent-colour); stop-opacity: 0"
+                    >
+                    </stop>
+                  </linearGradient>
+                </defs>
+                <path
+                  id="chart-area"
+                  d="M0,400 C150,385 300,350 450,280 C600,200 800,100 1000,20 L1000,400 L0,400 Z"
+                  fill="url(#gradient)"
+                  opacity="0.1"
+                >
+                </path>
+                <path
+                  id="chart-line"
+                  d="M0,400 C150,385 300,350 450,280 C600,200 800,100 1000,20"
+                  fill="none"
+                  stroke="var(--accent-colour)"
+                  stroke-linecap="round"
+                  stroke-width="6"
+                >
+                </path>
+                <circle
+                  id="chart-end-dot"
+                  cx="1000"
+                  cy="20"
+                  fill="var(--accent-colour)"
+                  r="8"
+                >
+                </circle>
+                <circle
+                  id="chart-end-glow"
+                  cx="1000"
+                  cy="20"
+                  fill="var(--accent-colour)"
+                  opacity="0.2"
+                  r="16"
+                >
+                </circle>
+              </svg>
+
+              <div class="x-axis-labels">
+                <span>Year 0</span>
+                <span>Year 12</span>
+                <span>Year 25</span>
+                <span>Year 37</span>
+                <span>Year 50</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2024 Financial Projections Tool</p>
+        <div>
+          <span>Enhanced Calculator v2.0</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/calculator.js"></script>
+  </body>
+</html>

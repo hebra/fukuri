@@ -45,18 +45,21 @@ Static website with an interactive compound interest calculator.
 
 ```
 compound-interest-calculator/
-├── index.html
-├── css/
-│   ├── styles.css
-│   └── variables.css (optional)
-├── js/
-│   ├── calculator.js
-│   ├── chart.js (optional)
-│   └── utils.js (optional)
-├── assets/
-│   └── favicon.ico
+├── web/
+│   ├── index.html
+│   ├── css/
+│   │   ├── styles.css
+│   │   └── variables.css (optional)
+│   ├── js/
+│   │   ├── calculator.js
+│   │   ├── chart.js (optional)
+│   │   └── utils.js (optional)
+│   └── assets/
+│       └── favicon.ico
 ├── AGENTS.md (this file)
-└── README.md
+├── Makefile
+├── README.md
+└── serve.ts (Deno server)
 ```
 
 ## Core Requirements
@@ -274,6 +277,24 @@ function displayResults(result) {
 </body>
 ```
 
+## Local Development
+
+For development purposes, a basic Deno server script is provided in the root directory.
+
+**Running the server:**
+
+```bash
+make serve
+```
+
+Alternatively:
+
+```bash
+deno run --allow-net --allow-read serve.ts
+```
+
+This serves the `web/` directory at `http://localhost:8000`.
+
 ## Performance Requirements
 
 ### Target Metrics
@@ -372,8 +393,8 @@ function displayResults(result) {
 1. Create GitHub repository
 2. Push code to `main` branch
 3. Enable GitHub Pages in repository settings
-4. Select source: `main` branch, `/` (root)
-5. Site live at `username.github.io/repo-name`
+4. Select source: `main` branch, `/web` folder (or adjust based on hosting requirements)
+5. Site live at `username.github.io/repo-name/web`
 
 ### Custom Domain (Optional)
 
@@ -606,6 +627,9 @@ If uncertain about any requirement:
 
 ## Version History
 
+  - **v1.3** (2026-02-27) - Added `Makefile` for common tasks (serve, format, lint)
+  - **v1.2** (2026-02-27) - Added Deno serve script for local development
+  - **v1.1** (2026-02-27) - Moved website files to `web/` subfolder
 - **v1.0** (2026-02-25) - Initial guidelines established
   - Pure HTML/CSS/JavaScript stack
   - No frameworks or build tools

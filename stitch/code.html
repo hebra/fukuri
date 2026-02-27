@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Compound Interest Calculator with Contributions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #0f172a;
+            --accent: #10b981;
+            --bg-main: #ffffff;
+            --bg-subtle: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+        input[type="range"] {
+            @apply w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-slate-900;
+        }
+        select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f172a",
+                        "accent": "#10b981"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 lg:p-12">
+<div class="max-w-6xl w-full mx-auto">
+<header class="mb-12">
+<h1 class="text-3xl font-extrabold tracking-tight text-primary">Compound Interest Calculator with Contributions</h1>
+<div class="h-1 w-20 bg-accent mt-4"></div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<aside class="lg:col-span-4 space-y-8">
+<div class="space-y-3">
+<label class="block text-sm font-bold uppercase tracking-wider text-text-muted">Start Value</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
+<input class="w-full pl-10 pr-4 py-4 bg-white border-2 border-slate-200 rounded-xl focus:border-primary focus:ring-0 text-xl font-bold transition-all outline-none" type="number" value="10000"/>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<label class="block text-sm font-bold uppercase tracking-wider text-text-muted">Interest Rate (%)</label>
+<span class="text-2xl font-black text-primary">7.5%</span>
+</div>
+<input max="25" min="0" step="0.1" type="range" value="7.5"/>
+<div class="flex justify-between text-xs font-medium text-slate-400">
+<span>0%</span>
+<span>25%</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<label class="block text-sm font-bold uppercase tracking-wider text-text-muted">Forecast Time Period</label>
+<span class="text-2xl font-black text-primary">25 <span class="text-sm font-bold">Years</span></span>
+</div>
+<input max="50" min="1" step="1" type="range" value="25"/>
+<div class="flex justify-between text-xs font-medium text-slate-400">
+<span>1 Year</span>
+<span>50 Years</span>
+</div>
+</div>
+<div class="space-y-3 pt-4 border-t border-slate-100">
+<label class="block text-sm font-bold uppercase tracking-wider text-text-muted">Additional Contribution</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
+<input class="w-full pl-10 pr-4 py-4 bg-white border-2 border-slate-200 rounded-xl focus:border-primary focus:ring-0 text-xl font-bold transition-all outline-none" placeholder="0" type="number" value="500"/>
+</div>
+</div>
+<div class="space-y-3">
+<label class="block text-sm font-bold uppercase tracking-wider text-text-muted">Contribution Frequency</label>
+<div class="relative">
+<select class="w-full px-4 py-4 bg-white border-2 border-slate-200 rounded-xl focus:border-primary focus:ring-0 text-lg font-semibold text-primary transition-all outline-none appearance-none">
+<option value="weekly">Weekly</option>
+<option selected="" value="monthly">Monthly</option>
+<option value="annually">Annually</option>
+</select>
+</div>
+</div>
+</aside>
+<section class="lg:col-span-8">
+<div class="bg-slate-50 border border-slate-100 rounded-3xl p-8 lg:p-12 h-full min-h-[550px] flex flex-col">
+<div class="flex flex-col mb-10">
+<span class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-1">Estimated Growth</span>
+<span class="text-5xl font-black text-primary">$492,842.15</span>
+<div class="mt-2 flex items-center gap-2">
+<span class="text-sm font-medium text-slate-500">Total Contributions:</span>
+<span class="text-sm font-bold text-accent">$150,000.00</span>
+</div>
+</div>
+<div class="flex-1 relative flex items-end min-h-[300px]">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-40">
+<div class="border-b border-slate-200 w-full h-0"></div>
+<div class="border-b border-slate-200 w-full h-0"></div>
+<div class="border-b border-slate-200 w-full h-0"></div>
+<div class="border-b border-slate-200 w-full h-0"></div>
+<div class="border-b-2 border-slate-300 w-full h-0"></div>
+</div>
+<svg class="w-full h-full relative z-10 overflow-visible" preserveAspectRatio="none" viewBox="0 0 1000 400">
+<path d="M0,400 C150,385 300,350 450,280 C600,200 800,100 1000,20 L1000,400 L0,400 Z" fill="url(#gradient)" opacity="0.1"></path>
+<path d="M0,400 C150,385 300,350 450,280 C600,200 800,100 1000,20" fill="none" stroke="#10b981" stroke-linecap="round" stroke-width="6"></path>
+<circle cx="1000" cy="20" fill="#10b981" r="8"></circle>
+<circle cx="1000" cy="20" fill="#10b981" opacity="0.2" r="16"></circle>
+<defs>
+<linearGradient id="gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#10b981;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#10b981;stop-opacity:0"></stop>
+</linearGradient>
+</defs>
+</svg>
+<div class="absolute -bottom-8 left-0 w-full flex justify-between text-[10px] font-bold uppercase tracking-tighter text-slate-400">
+<span>Year 0</span>
+<span>Year 12</span>
+<span>Year 25</span>
+<span>Year 37</span>
+<span>Year 50</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<footer class="mt-16 pt-8 border-t border-slate-100 flex justify-between items-center text-slate-400 text-xs font-medium">
+<p>© 2024 Financial Projections Tool</p>
+<div class="flex gap-4">
+<span>Enhanced Calculator v2.0</span>
+</div>
+</footer>
+</div>
+
+</body></html>
