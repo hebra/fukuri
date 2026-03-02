@@ -1,5 +1,5 @@
 /**
- * Compound Interest Calculator
+ * Fukuri — Compound Interest Calculator
  *
  * Formula for Compound Interest with Regular Contributions:
  * A = P(1 + r/n)^(nt) + PMT * (((1 + r/n)^(nt) - 1) / (r/n))

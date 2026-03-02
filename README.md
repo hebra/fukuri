@@ -1,6 +1,8 @@
-# Compound Interest Calculator with Contributions
+# Fukuri — Compound Interest Calculator
 
 A clean, modern, and accessible compound interest calculator that supports regular contributions and various compounding frequencies.
+
+**Live Demo:** [https://fukuri.yogu.one](https://fukuri.yogu.one)
 
 ## Features
 

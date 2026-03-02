@@ -1,8 +1,8 @@
-# Agent Guidelines: Compound Interest Calculator Project
+# Agent Guidelines: Fukuri (Compound Interest Calculator Project)
 
 ## Project Overview
 
-This document serves as the source of truth for all AI agents working on the compound interest calculator project. It defines the technical stack, requirements, standards, and implementation guidelines.
+This document serves as the source of truth for all AI agents working on the Fukuri project. It defines the technical stack, requirements, standards, and implementation guidelines.
 
 ## Project Type
 
@@ -44,7 +44,7 @@ Static website with an interactive compound interest calculator.
 ## Project Structure
 
 ```
-compound-interest-calculator/
+fukuri/
 ├── web/
 │   ├── index.html
 │   ├── css/
@@ -154,7 +154,7 @@ function calculateCompoundInterest(principal, rate, time, frequency) {
 <!-- Use semantic HTML5 -->
 <main>
   <section class="calculator">
-    <h1>Compound Interest Calculator</h1>
+    <h1>Fukuri — Compound Interest Calculator</h1>
     <form id="calculator-form">
       <label for="principal">Principal Amount ($)</label>
       <input 
