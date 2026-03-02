@@ -40,6 +40,25 @@ header {
   align-items: center;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.logo {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
 header h1 {
   font-size: 1.875rem; /* 3xl */
   font-weight: 800;
