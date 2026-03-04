@@ -43,24 +43,36 @@ Static website with an interactive compound interest calculator.
 
 ## Project Structure
 
-```
+```text
 fukuri/
 ├── web/
 │   ├── index.html
 │   ├── css/
 │   │   ├── styles.css
-│   │   └── variables.css (optional)
+│   │   └── variables.css
 │   ├── js/
 │   │   ├── calculator.js
-│   │   ├── chart.js (optional)
-│   │   └── utils.js (optional)
+│   │   └── theme.js
 │   └── assets/
-│       └── favicon.ico
-├── AGENTS.md (this file)
+│       └── fukuri.png
+├── AGENTS.md
+├── LICENSE
 ├── Makefile
 ├── README.md
+├── fukuri.png
 └── serve.ts (Deno server)
 ```
+
+## Core Architecture
+
+Fukuri follows a **Modular Static Site** architecture with a clear separation of concerns:
+
+-   **Markup (HTML5)**: Semantic structure and initial state for the calculator.
+-   **Styling (CSS3)**: Responsive layout using Grid and Flexbox, themed with CSS Custom Properties.
+-   **Logic (Vanilla JS)**:
+    -   `calculator.js`: Handles all mathematical computations and SVG chart rendering.
+    -   `theme.js`: Manages dark/light mode persistence and system preference detection.
+-   **Infrastructure**: Deno-powered development environment (linting, formatting, and local serving).
 
 ## Core Requirements
 
@@ -589,7 +601,17 @@ for (let i = 0; i < 100; i++) {
 </header>
 ```
 
-## Agent Responsibilities
+## Agent Constraints
+
+### Specific "Dos and Don'ts"
+
+-   ❌ **Do NOT** introduce any JavaScript frameworks (React, Vue, etc.).
+-   ❌ **Do NOT** use CSS utility frameworks like Tailwind; use the existing Custom Properties in `variables.css`.
+-   ❌ **Do NOT** use `innerHTML` for displaying user-provided data; always use `textContent` to prevent XSS.
+-   ❌ **Do NOT** modify the core calculation logic in `calculator.js` without comprehensive manual testing.
+-   ✅ **Always** use British English spelling for code comments and documentation (e.g., "visualisation", "colour", "optimise").
+-   ✅ **Always** ensure new features are keyboard-accessible and follow WCAG AA guidelines.
+-   ✅ **Always** run `make lint` and `make fmt` before submitting changes.
 
 ### When Creating New Files
 
@@ -627,17 +649,21 @@ If uncertain about any requirement:
 
 ## Version History
 
-  - **v1.3** (2026-02-27) - Added `Makefile` for common tasks (serve, format, lint)
-  - **v1.2** (2026-02-27) - Added Deno serve script for local development
-  - **v1.1** (2026-02-27) - Moved website files to `web/` subfolder
+- **v1.4** (2026-03-04) - Updated `AGENTS.md` for better clarity, corrected project structure, and added explicit architecture/constraints sections.
+- **v1.3** (2026-02-27) - Added `Makefile` for common tasks (serve, format, lint)
+- **v1.2** (2026-02-27) - Added Deno serve script for local development
+- **v1.1** (2026-02-27) - Moved website files to `web/` subfolder
 - **v1.0** (2026-02-25) - Initial guidelines established
-  - Pure HTML/CSS/JavaScript stack
-  - No frameworks or build tools
-  - Focus on simplicity and performance
-  - Comprehensive accessibility requirements
+
+## Changelog (v1.4)
+
+-   **Updated Project Structure**: Corrected file paths for `theme.js` and assets.
+-   **Added Core Architecture**: Documented the separation of concerns between markup, styling, and logic.
+-   **Refined Agent Constraints**: Consolidated "Dos and Don'ts" into a dedicated section.
+-   **Standardised Output**: Ensured the document meets the latest requirements for AI coding agents.
 
 ---
 
-**Last Updated:** 2026-02-25  
+**Last Updated:** 2026-03-04  
 **Document Owner:** Project Team  
 **Review Frequency:** As needed based on project evolution
